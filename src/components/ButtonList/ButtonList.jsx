@@ -1,15 +1,38 @@
-export const ButtonList = () => {
+import { FormButtonList, Button } from './ButtonList.styled';
+
+export const ButtonList = ({ incrementValue, refValues }) => {
    return (
-      <ul>
+      <FormButtonList>
          <li>
-            <button>Good</button>
+            <Button
+               onClick={() => {
+                  incrementValue(refValues.GOOD_VALUE);
+                  // countTotalFeedback();
+               }}
+            >
+               Good
+            </Button>
          </li>
          <li>
-            <button>Neutral</button>
+            <Button
+               onClick={() => {
+                  incrementValue(refValues.NEUTRAL_VALUE);
+                  // countTotalFeedback();
+               }}
+            >
+               Neutral
+            </Button>
          </li>
          <li>
-            <button>Bad</button>
+            <Button
+               onClick={() => {
+                  incrementValue(refValues.BAD_VALUE);
+                  // countTotalFeedback();
+               }}
+            >
+               Bad
+            </Button>
          </li>
-      </ul>
+      </FormButtonList>
    );
 };

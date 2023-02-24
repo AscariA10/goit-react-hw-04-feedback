@@ -1,14 +1,24 @@
-export const Statistics = () => {
-   return (
+export const Statistics = ({
+   statisticValues: { goodValue, neutralValue, badValue },
+   countTotalRate,
+   countTotalFeedback,
+   children,
+}) => {
+   const resultRate = countTotalRate();
+   const resultFeedback = countTotalFeedback();
+
+   return resultFeedback > 0 ? (
       <>
          <p>StatisticsGrid</p>
          <ul>
-            <li>Good</li>
-            <li>Neutral</li>
-            <li>Bad</li>
+            <li>Good: {goodValue}</li>
+            <li>Neutral: {neutralValue}</li>
+            <li>Bad: {badValue}</li>
          </ul>
-         <p>Total</p>
-         <p>Positive feedback</p>
+         <p>Total: {resultFeedback} </p>
+         <p>Positive feedback {resultRate ? resultRate : 0}%</p>
       </>
+   ) : (
+      children
    );
 };
