@@ -1,4 +1,5 @@
 import { FormButtonList, Button } from './ButtonList.styled';
+import PropTypes from 'prop-types';
 
 export const ButtonList = ({ incrementValue, refValues }) => {
    return (
@@ -35,4 +36,9 @@ export const ButtonList = ({ incrementValue, refValues }) => {
          </li>
       </FormButtonList>
    );
+};
+
+ButtonList.propTypes = {
+   incrementValue: PropTypes.func.isRequired,
+   refValues: PropTypes.objectOf(PropTypes.string.isRequired),
 };

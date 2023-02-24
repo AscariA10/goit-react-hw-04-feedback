@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Statistics = ({
    statisticValues: { goodValue, neutralValue, badValue },
    countTotalRate,
@@ -21,4 +23,11 @@ export const Statistics = ({
    ) : (
       children
    );
+};
+
+Statistics.propTypes = {
+   statisticValues: PropTypes.objectOf(PropTypes.number),
+   countTotalRate: PropTypes.func,
+   countTotalFeedback: PropTypes.func,
+   children: PropTypes.object,
 };
