@@ -10,7 +10,7 @@ export const Title = ({ children, title }) => {
    );
 };
 
-Title.propTypes = {
-   children: PropTypes.array.isRequired,
-   title: PropTypes.string.isRequired,
-};
+// Title.propTypes = {
+//    children: PropTypes.array.isRequired,
+//    title: PropTypes.string.isRequired,
+// };

@@ -7,7 +7,7 @@ export const ButtonList = ({ incrementValue, refValues }) => {
          <li>
             <Button
                onClick={() => {
-                  incrementValue(refValues.GOOD_VALUE);
+                  incrementValue('good');
                   // countTotalFeedback();
                }}
             >
@@ -17,7 +17,7 @@ export const ButtonList = ({ incrementValue, refValues }) => {
          <li>
             <Button
                onClick={() => {
-                  incrementValue(refValues.NEUTRAL_VALUE);
+                  incrementValue('neutral');
                   // countTotalFeedback();
                }}
             >
@@ -27,7 +27,7 @@ export const ButtonList = ({ incrementValue, refValues }) => {
          <li>
             <Button
                onClick={() => {
-                  incrementValue(refValues.BAD_VALUE);
+                  incrementValue('bad');
                   // countTotalFeedback();
                }}
             >
@@ -38,7 +38,7 @@ export const ButtonList = ({ incrementValue, refValues }) => {
    );
 };
 
-ButtonList.propTypes = {
-   incrementValue: PropTypes.func.isRequired,
-   refValues: PropTypes.objectOf(PropTypes.string.isRequired),
-};
+// ButtonList.propTypes = {
+//    incrementValue: PropTypes.func.isRequired,
+//    refValues: PropTypes.objectOf(PropTypes.string.isRequired),
+// };
