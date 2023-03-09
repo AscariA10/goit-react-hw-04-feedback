@@ -2,7 +2,6 @@ import { FeedbackForm, FeedbackTitle } from './Title.styled';
 import PropTypes from 'prop-types';
 
 export const Title = ({ children, title }) => {
-   console.log(children);
    return (
       <FeedbackForm>
          <FeedbackTitle>{title}</FeedbackTitle>
