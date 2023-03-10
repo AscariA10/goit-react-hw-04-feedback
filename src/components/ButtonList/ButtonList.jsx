@@ -1,7 +1,7 @@
 import { FormButtonList, Button } from './ButtonList.styled';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-export const ButtonList = ({ incrementValue, refValues }) => {
+export const ButtonList = ({ incrementValue }) => {
    return (
       <FormButtonList>
          <li>

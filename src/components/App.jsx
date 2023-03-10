@@ -1,19 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Title } from './Title/Title';
 import { ButtonList } from './ButtonList/ButtonList';
 import { Statistics } from './Statistics/Statistics';
-// import { NotificationMessage } from './NotificationMessage/NotificationMessage';
+import { NotificationMessage } from './NotificationMessage/NotificationMessage';
 
 export const App = () => {
    const [good, setGood] = useState(0);
    const [neutral, setNeutral] = useState(0);
    const [bad, setBad] = useState(0);
+   const [totalFeedbacks, setTotalFeedbacks] = useState(0);
+   const [totalRate, setTotalRate] = useState(0);
+
+   useEffect(() => {
+      setTotalFeedbacks(good + neutral + bad);
+   }, [good, neutral, bad]);
+
+   useEffect(() => {
+      setTotalRate(((100 * (good * 1 + neutral * 0.5 + bad * -1)) / totalFeedbacks).toFixed(1));
+   }, [good, neutral, bad, totalFeedbacks]);
 
    const title = 'Expresso Cafe Feedback and Rate List';
+   const notificationMessage = 'There is no feedback';
 
    function incrementValue(value) {
-      console.log(value);
       switch (value) {
          case 'good':
             setGood(good + 1);
@@ -24,19 +34,25 @@ export const App = () => {
          case 'bad':
             setBad(bad + 1);
             return;
+         default:
+            console.log('');
       }
    }
 
    return (
       <Title title={title}>
-         <ButtonList incrementValue={incrementValue} refValues={good} />
-         {/* <Statistics
-            statisticValues={good}
-            countTotalRate={this.countTotalRate}
-            countTotalFeedback={this.countTotalFeedback}
-         >
-            <NotificationMessage notificationMessage={this.notificationMessage} />
-         </Statistics> */}
+         <ButtonList incrementValue={incrementValue} />
+         {totalFeedbacks > 0 ? (
+            <Statistics
+               goodValue={good}
+               neutralValue={neutral}
+               badValue={bad}
+               totalFeedbacks={totalFeedbacks}
+               totalRate={totalRate}
+            ></Statistics>
+         ) : (
+            <NotificationMessage notificationMessage={notificationMessage} />
+         )}
       </Title>
    );
 };
